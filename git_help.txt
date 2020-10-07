@@ -1,0 +1,71 @@
+Git 저장소 생성 및 커밋 ( init / add / commit )
+https://ifuwanna.tistory.com/193
+
+깃 공식 문서
+https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0
+
+깃(Git) 개념과 상황별 팁 
+https://jeonghwan-kim.github.io/dev/2020/02/10/git-usage.html
+
+
+깃 관련 잘되어 있네
+https://backlog.com/git-tutorial/kr/intro/intro1_1.html
+------------------------------------------------------------------------------------------------------------------------
+
+git config --global user.name "kkn"
+git config --global user.email noah@twosun.com
+
+git init
+Initialized empty Git repository
+
+
+
+#깃 상태 확인
+
+	git status
+	git status -s (짧은 메시지)
+
+
+#git 에 커밋 하기전 stage 추가
+
+	git add test.html
+	git add -p
+		변경 목록을 보고 add 함
+
+	git add -A 
+		stages all changes(비추하는 습관)
+
+	git add . stages new files and modifications, without deletions
+	git add -u stages modifications and deletions, without new files
+
+
+#push 하기전 커밋
+
+	git commit
+	기본 에디터가 열리고 변경 내용을 기록할 수 있는 입력 화면이 나온다. 변경 내용을 설명할 수 있는 텍스트를 입력하고 저장하면 커밋이 생성된다.
+	에디터를 열지않고 터미널에서 바로 메세지를 입력할 수 있는 -m 옵션도 자주 사용한다.
+
+	git commit -m "여기에 커밋메세지를 입력합니다."
+	매번 변경사항을 스테이징하고 커밋하는게 번거롭다면 -a 옵션을 사용하자. 
+	신규 파일을 제외하고 트래킹하는 모든 파일의 변경사항을 스테이징함과 동시에 커밋을 만들 수 있는 옵션이다. -m과 함께 사용할 수 있다.
+
+
+#반영하기 푸시
+	git push
+	마지막 커밋에 대한 반영
+
+
+
+#pull 과 fetch의 차이
+
+	git pull
+		원격 저장소로부터 필요한 파일을 다운 + 병합 // 지역 브랜치와, 원격 저장소 origin/master 가 같은 위치를 가리킨다.
+
+	git fetch
+		원격 저장소로부터 필요한 파일을 다운 (병합은 따로 해야 함)
+		지역 브랜치는 원래 가지고 있던 지역 저장소의 최근 커밋 위치를 가리키고, 원격 저장소 origin/master는 가져온 최신 커밋을 가리킨다.
+		신중할 때 사용한다.
+		사용하는 이유?
+		원래 내용과 바뀐 내용과의 차이를 알 수 있다 (git diff HEAD origin/master)
+		commit이 얼마나 됐는지 알 수 있다 (git log --decorate --all --oneline)
+		이런 세부 내용 확인 후 git merge origin/master 하면 git pull 상태와 같아진다. (병합까지 완료)
