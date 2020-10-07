@@ -10,3 +10,5 @@ echo 'mian가 pc 에서 수정함';
 
 
 echo "메인을 vscode 에서 수정함1";
+
+echo "내가 같은 파일을 건드림";
