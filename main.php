@@ -7,3 +7,6 @@ if($_POST['test']){
 }
 
 echo 'mian가 pc 에서 수정함';
+
+
+echo "메인을 vscode 에서 수정함";
