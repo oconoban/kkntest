@@ -1,5 +1,6 @@
-dB 정보 인설트
+<?php
+echo 'dB 정보 인설트';
 
-22 ->vscode
+echo '22 ->vscode';
 
-11 //다이렉트
+echo '11 //다이렉트';
