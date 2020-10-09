@@ -12,8 +12,8 @@ https://jeonghwan-kim.github.io/dev/2020/02/10/git-usage.html
 https://backlog.com/git-tutorial/kr/intro/intro1_1.html
 ------------------------------------------------------------------------------------------------------------------------
 
-git config --global user.name "kkn"
-git config --global user.email noah@twosun.com
+git config --global user.name "test"
+git config --global user.email test@test.com
 
 git init
 Initialized empty Git repository
