@@ -55,6 +55,12 @@ Initialized empty Git repository
 		마지막 커밋에 대한 반영
 
 
+#바로 직전 커밋 수정하기
+	git commit --amend
+		vi 편집기 ESC => wq(저장하고종료)
+		vi 편집기 ESC => q(저장하지 않고 종료
+	git pull
+	git push
 
 #pull 과 fetch의 차이
 
