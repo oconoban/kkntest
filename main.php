@@ -20,6 +20,3 @@ echo "내가 같은 파일을 건드림";
 //vscode 에서 작업중
 
 //home
-
-
-//delete
