@@ -12,8 +12,8 @@ https://jeonghwan-kim.github.io/dev/2020/02/10/git-usage.html
 https://backlog.com/git-tutorial/kr/intro/intro1_1.html
 ------------------------------------------------------------------------------------------------------------------------
 
-git config --global user.name "kkn"
-git config --global user.email noah@twosun.com
+git config --global user.name "test"
+git config --global user.email test@test.com
 
 git init
 Initialized empty Git repository
@@ -42,19 +42,25 @@ Initialized empty Git repository
 #push 하기전 커밋
 
 	git commit
-	기본 에디터가 열리고 변경 내용을 기록할 수 있는 입력 화면이 나온다. 변경 내용을 설명할 수 있는 텍스트를 입력하고 저장하면 커밋이 생성된다.
-	에디터를 열지않고 터미널에서 바로 메세지를 입력할 수 있는 -m 옵션도 자주 사용한다.
+		기본 에디터가 열리고 변경 내용을 기록할 수 있는 입력 화면이 나온다. 변경 내용을 설명할 수 있는 텍스트를 입력하고 저장하면 커밋이 생성된다.
+		에디터를 열지않고 터미널에서 바로 메세지를 입력할 수 있는 -m 옵션도 자주 사용한다.
 
 	git commit -m "여기에 커밋메세지를 입력합니다."
-	매번 변경사항을 스테이징하고 커밋하는게 번거롭다면 -a 옵션을 사용하자. 
-	신규 파일을 제외하고 트래킹하는 모든 파일의 변경사항을 스테이징함과 동시에 커밋을 만들 수 있는 옵션이다. -m과 함께 사용할 수 있다.
+		매번 변경사항을 스테이징하고 커밋하는게 번거롭다면 -a 옵션을 사용하자. 
+		신규 파일을 제외하고 트래킹하는 모든 파일의 변경사항을 스테이징함과 동시에 커밋을 만들 수 있는 옵션이다. -m과 함께 사용할 수 있다.
 
 
 #반영하기 푸시
 	git push
-	마지막 커밋에 대한 반영
+		마지막 커밋에 대한 반영
 
 
+#바로 직전 커밋 수정하기
+	git commit --amend
+		vi 편집기 ESC => wq(저장하고종료)
+		vi 편집기 ESC => q(저장하지 않고 종료
+	git pull
+	git push
 
 #pull 과 fetch의 차이
 
@@ -69,3 +75,13 @@ Initialized empty Git repository
 		원래 내용과 바뀐 내용과의 차이를 알 수 있다 (git diff HEAD origin/master)
 		commit이 얼마나 됐는지 알 수 있다 (git log --decorate --all --oneline)
 		이런 세부 내용 확인 후 git merge origin/master 하면 git pull 상태와 같아진다. (병합까지 완료)
+
+
+#branch 삭제
+		git checkout main
+
+		git branch -d new_branch3
+			 경우, local의 branch는 삭제 되었으나, remote branch는 삭제가 아직 되지 않았습니다
+
+		git push origin :new_branch3
+			remote branch를 삭제하기 위해서는, 다음과 같은 command를 수행합니다.
