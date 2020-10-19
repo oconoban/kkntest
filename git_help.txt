@@ -77,11 +77,49 @@ Initialized empty Git repository
 		이런 세부 내용 확인 후 git merge origin/master 하면 git pull 상태와 같아진다. (병합까지 완료)
 
 
+
+
+#branch 선택
+	git checkout branch_name
+
+#branch 생성
+	git branch branch_name
+
+#원격 브랜치 목록보기
+	git branch -r
+	----------
+	origin/HEAD -> origin/main
+	origin/main
+	origin/new_branch3
+	----------
+
+#로컬 브랜치 목록보기
+	git branch -a
+	----------
+	* main
+	new_branch3
+	remotes/origin/HEAD -> origin/main
+	remotes/origin/main
+	remotes/origin/new_branch3	
+	----------
+	
+
 #branch 삭제
-		git checkout main
+	git checkout main
 
-		git branch -d new_branch3
-			 경우, local의 branch는 삭제 되었으나, remote branch는 삭제가 아직 되지 않았습니다
+	git branch -d new_branch3
+		 경우, local의 branch는 삭제 되었으나, remote branch는 삭제가 아직 되지 않음 (아래 원격 브렌치 삭제)
 
-		git push origin :new_branch3
-			remote branch를 삭제하기 위해서는, 다음과 같은 command를 수행합니다.
+	git push origin :new_branch3
+		remote branch를 삭제하기 위해서는, 다음과 같은 command를 수행합니다. (원격 브렌츠 삭제 )
+		git push remote_name — delete branch_name
+
+# branch 간 병합 (new_branch3 작업을 => main 으로 병합)
+	git checkout main 
+		병합 시킬 브렌치로 checkout
+
+	git checkout new_branch3
+		병합할 new_branch(From) => main (To)
+
+	git push
+		remote 로 반영
