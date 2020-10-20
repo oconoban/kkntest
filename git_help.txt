@@ -117,8 +117,8 @@ Initialized empty Git repository
 # branch 간 병합 (new_branch3 작업을 => main 으로 병합)
 	git checkout main 
 		병합 시킬 브렌치로 checkout
-
-	git checkout new_branch3
+	
+	git merge new_branch3
 		병합할 new_branch(From) => main (To)
 
 	git push
