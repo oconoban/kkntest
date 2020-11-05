@@ -1,16 +1,5 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-include '../phputil/kkn_utils.php';
-
-$mysqli = new mysqli("localhost","root","1234","test_2");
-$mysqli->set_charset('utf8');
-
-
-// Check connection
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
-}
 
 
 foreach($_POST['option_title'] as $key => $v){
