@@ -1,0 +1,95 @@
+<?php
+header('Content-Type: text/html; charset=UTF-8');
+include '../phputil/kkn_utils.php';
+
+
+$q = 'SELECT * FROM product_option WHERE product_no = 1';
+if ($result = $mysqli->query($q)) {
+    while ($row = $result->fetch_assoc()) {
+        $option[] = $row;
+    }
+    $result->free_result();
+}
+
+  $q = 'SELECT * FROM product_option_info WHERE product_no = 1';
+if ($result = $mysqli->query($q)) {
+    while ($row = $result->fetch_assoc()) {
+        $option_info[] = $row;
+    }
+    $result->free_result();
+}
+
+// print_rr($option);
+// print_rr($option_info);
+
+?>
+<form action="proc.php" method="post">
+
+<?php
+foreach($option as $key => $v){
+?>
+
+<input type="" name="option_no[]" class=""  value="<?=$v['no']?>" />
+<input type="" name="option_title[]" class=""  value="<?=$v['option_title']?>" />
+<input type="" name="option_value[]" class=""  value="<?=$v['option_value']?>" />
+
+<?php
+}
+?>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<?php
+foreach($option_info as $key => $v){
+?>
+    <tr>
+        <td><input type="text" name="option_info_no[]" class=""  value="<?php echo $v['no'];?>" size="2"/></td>
+        <td><input type="text" name="option_info_value[]" class=""  value="<?php echo $v['fulll_value'];?>" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="<?php echo $v['price'];?>" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="<?php echo $v['stock'];?>" /></td>
+
+    </tr>
+<?php
+}
+?>
+               
+</table>
+
+<!-- <input type="" name="option_title[]" class=""  value="색상" />
+<input type="" name="option_title[]" class=""  value="사이즈" />
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="빨^S" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="빨^M" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="빨^L" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="파^S" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="파^M" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="option_value[]" class=""  value="파^L" /></td>
+        <td><input type="text" name="option_price[]" class=""  value="100" /></td>
+        <td><input type="text" name="option_stock[]" class=""  value="10" /></td>
+    </tr>                    
+</table> -->
+
+<input type="submit" name="" class=""  value="서브밋" />
+</form>
